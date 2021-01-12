@@ -7,17 +7,18 @@ import SignInSide from './components/SignInSide'
 import SignUp from './components/SignUp'
 import Album from './components/Album'
 import Blog from './components/blog/Blog'
+import Orders from './components/dashboard/Orders'
+import Appointments from './components/Appointments'
 
 function App() {
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          {/* <SignInSide/> */}
-          {/* <SignUp /> */}
-          {/* <Route exact path='/' component={SignInSide} /> */}
-          {/* <Route exact path='/SignUp' component={SignUp} /> */}
-          <Blog/>          
+          <Appointments/>
+          {/* <Route exact path='/' component={Blog} />
+          <Route exact path='/SingIn' component={SignIn} />
+          <Route exact path='/SignUp' component={SignUp} /> */}
         </header>
       </div>
     </Router>

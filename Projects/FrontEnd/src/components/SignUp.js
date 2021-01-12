@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -49,6 +49,30 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles()
+  const [firstName, setFirstName] = useState(" ")
+  const [lastName, setLastName] = useState(" ")
+  const [email, setEmail] = useState(" ")
+  const [password, setPassword] = useState(" ")
+
+  const sendInfo = () =>{
+    
+  }
+
+  const firstNameChange = (e) =>{
+    setFirstName(e.target.value)
+  }
+
+  const lastNameChange = (e) =>{
+    setLastName(e.target.value)
+  }
+
+  const emailChange = (e) =>{
+    setEmail(e.target.value)
+  }
+
+  const passwordChange = (e) =>{
+    setPassword(e.target.value)
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -72,6 +96,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={firstNameChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -83,6 +108,7 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange={lastNameChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -94,6 +120,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={emailChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -106,6 +133,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={passwordChange}
               />
             </Grid>
             <Grid item xs={12}>
