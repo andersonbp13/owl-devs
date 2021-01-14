@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton"
 import SearchIcon from "@material-ui/icons/Search"
 import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
-import { Link as LinkRouter, Router } from "react-router-dom"
+import { Link as LinkRouter } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -23,18 +23,27 @@ const useStyles = makeStyles((theme) => ({
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
+    flex: 4,
+    alignItems: "flex-start",
+    alignContent: "flex-start",
+    color: "inherit",
+    variant: "body2",
   },
 }))
 
 export default function Header(props) {
   const classes = useStyles()
-  const { sections, title } = props
-  const style = {textDecoration: 'none'};
+  const { title, sections, logState } = props
+  const style = {
+    textDecoration: "none",
+  }
 
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Button size="small">Subscribe</Button>
+        <LinkRouter to="/" style={style}>
+          <Button size="small">Home</Button>
+        </LinkRouter>
         <Typography
           component="h2"
           variant="h5"
@@ -45,13 +54,12 @@ export default function Header(props) {
         >
           {title}
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
         <LinkRouter to="/SingIn" style={style}>
-          <Button variant="outlined" size="small">
-            Sign In
-          </Button>
+          {logState && (
+            <Button variant="outlined" size="small">
+              Sign In
+            </Button>
+          )}
         </LinkRouter>
       </Toolbar>
       <Toolbar
@@ -60,15 +68,10 @@ export default function Header(props) {
         className={classes.toolbarSecondary}
       >
         {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            className={classes.toolbarLink}
-          >
-            {section.title}
+          <Link noWrap key={section.title} className={classes.toolbarLink}>
+            <LinkRouter to={section.url} style={style}>
+              {section.title}
+            </LinkRouter>
           </Link>
         ))}
       </Toolbar>

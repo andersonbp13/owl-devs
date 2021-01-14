@@ -152,7 +152,7 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container justify="center">
             <Grid item>
               <LinkRouter to="/">
                 <Link href="#" variant="body2">

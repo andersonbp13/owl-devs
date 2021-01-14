@@ -119,17 +119,6 @@ function Appointments() {
 
   return (
     <div>
-      <Menu styles={ styles } >
-        <a id="home" className="menu-item" href="/">
-          Home
-        </a>
-        <a id="about" className="menu-item" href="/about">
-          About
-        </a>
-        <a id="contact" className="menu-item" href="/contact">
-          Contact
-        </a>
-      </Menu>
       <Container maxWidth="lg" className={classes.container}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -137,7 +126,7 @@ function Appointments() {
               <Orders />
             </Paper>
           </Grid>
-        </Grid>
+        </Grid> 
       </Container>
     </div>
   )
