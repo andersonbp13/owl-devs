@@ -11,6 +11,7 @@ import Orders from "./components/dashboard/Orders"
 import Appointments from "./components/Appointments"
 import Header from "./components/blog/Header"
 import Map from './components/Map';
+import Checkout from './components/checkout/Checkout'
 
 
 function App() {
@@ -21,13 +22,14 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <Map/>
+      <div>
+        {/* <Map/> */}
         {/* <Header title="GeoIPS" sections={sections} logState={true}/>
         <Route exact path="/" component={Blog} />
         <Route exact path="/SingIn" component={SignIn} />
         <Route exact path="/SignUp" component={SignUp} />
         <Route exact path="/Appointments" component={Appointments} /> */}
+        <Checkout/>
       </div>
     </Router>
   )
