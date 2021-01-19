@@ -10,6 +10,8 @@ import Blog from "./components/blog/Blog"
 import Orders from "./components/dashboard/Orders"
 import Appointments from "./components/Appointments"
 import Header from "./components/blog/Header"
+import Map from './components/Map';
+
 
 function App() {
   const sections = [
@@ -20,11 +22,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header title="GeoIPS" sections={sections} logState={true}/>
+        <Map/>
+        {/* <Header title="GeoIPS" sections={sections} logState={true}/>
         <Route exact path="/" component={Blog} />
         <Route exact path="/SingIn" component={SignIn} />
         <Route exact path="/SignUp" component={SignUp} />
-        <Route exact path="/Appointments" component={Appointments} />
+        <Route exact path="/Appointments" component={Appointments} /> */}
       </div>
     </Router>
   )
