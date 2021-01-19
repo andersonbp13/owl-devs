@@ -23,13 +23,13 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <Map/> */}
+        <Map/>
         {/* <Header title="GeoIPS" sections={sections} logState={true}/>
         <Route exact path="/" component={Blog} />
         <Route exact path="/SingIn" component={SignIn} />
         <Route exact path="/SignUp" component={SignUp} />
         <Route exact path="/Appointments" component={Appointments} /> */}
-        <Checkout/>
+        {/* <Checkout/> */}
       </div>
     </Router>
   )

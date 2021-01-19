@@ -1,4 +1,4 @@
-import ReactMapGl, { GeolocateControl } from 'react-map-gl'
+import ReactMapGl, { GeolocateControl, Marker} from 'react-map-gl'
 import React, { useState } from 'react'
 import Button from "@material-ui/core/Button"
 
@@ -34,6 +34,18 @@ function Map() {
       () => null
     )
   }
+
+  function createData(id, latitude, longitude) {
+    return { id, latitude, longitude};
+  }
+
+  const ips = [
+    createData(1, 6.2530408, -75.5645737),
+    createData(2, 7.2530408, -75.5645737),
+    createData(3, 8.2530408, -75.5645737),
+    createData(4, 9.2530408, -75.5645737),
+  ];
+
   return (
     <div>
       <Button onClick={locate}>GeoLocate</Button>
@@ -52,6 +64,13 @@ function Map() {
           showUserLocation={true}
           onGeolocate={locate}
         />
+
+        {ips.map((ips) => (
+          <Marker  key={ips.id} latitude={ips.latitude} longitude={ips.longitude} >
+            <img src="/marker.png" alt="ips-marker"/>
+          </Marker>
+        ))}
+
       </ReactMapGl>
     </div>
   )
