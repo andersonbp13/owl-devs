@@ -16,19 +16,20 @@ import Checkout from './components/checkout/Checkout'
 
 function App() {
   const sections = [
-    { title: "Request Appointment ", url: "/" },
     { title: "Consult Appointments", url: "/Appointments" },
+    { title: "Request Appointment ", url: "/Request" },
   ]
 
   return (
     <Router>
       <div>
-        <Map/>
-        {/* <Header title="GeoIPS" sections={sections} logState={true}/>
+        {/* <Map/> */}
+        <Header title="GeoIPS" sections={sections} logState={true}/>
         <Route exact path="/" component={Blog} />
         <Route exact path="/SingIn" component={SignIn} />
         <Route exact path="/SignUp" component={SignUp} />
-        <Route exact path="/Appointments" component={Appointments} /> */}
+        <Route exact path="/Appointments" component={Appointments} />
+        <Route exact path="/Request" component={Checkout} />
         {/* <Checkout/> */}
       </div>
     </Router>

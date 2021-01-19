@@ -1,7 +1,7 @@
-import ReactMapGl, { GeolocateControl, Marker} from 'react-map-gl'
+import ReactMapGl, { GeolocateControl, Marker } from 'react-map-gl'
 import React, { useState } from 'react'
-import Button from "@material-ui/core/Button"
-
+import Button from '@material-ui/core/Button'
+import { sizing } from '@material-ui/system';
 
 function Map() {
   const [userposition, setUserposition] = useState({
@@ -12,8 +12,8 @@ function Map() {
   const [viewport, setViewport] = useState({
     latitude: 6.2530408,
     longitude: -75.5645737,
-    width: '50vw',
-    height: '50vh',
+    width: '600px',
+    height: '400px',
     zoom: 10,
   })
 
@@ -36,7 +36,7 @@ function Map() {
   }
 
   function createData(id, latitude, longitude) {
-    return { id, latitude, longitude};
+    return { id, latitude, longitude }
   }
 
   const ips = [
@@ -44,11 +44,11 @@ function Map() {
     createData(2, 7.2530408, -75.5645737),
     createData(3, 8.2530408, -75.5645737),
     createData(4, 9.2530408, -75.5645737),
-  ];
+  ]
 
   return (
-    <div>
-      <Button onClick={locate}>GeoLocate</Button>
+    <div width='50vw' height='50vh'>
+      {/* <Button onClick={locate}>GeoLocate</Button> */}
 
       <ReactMapGl
         {...viewport}
@@ -66,11 +66,17 @@ function Map() {
         />
 
         {ips.map((ips) => (
-          <Marker  key={ips.id} latitude={ips.latitude} longitude={ips.longitude} >
-            <img src="/marker.png" alt="ips-marker"/>
+          <Marker
+            key={ips.id}
+            latitude={ips.latitude}
+            longitude={ips.longitude}
+          >
+            <img
+              src="/marker.png"
+              alt="ips-marker"
+            />
           </Marker>
         ))}
-
       </ReactMapGl>
     </div>
   )
