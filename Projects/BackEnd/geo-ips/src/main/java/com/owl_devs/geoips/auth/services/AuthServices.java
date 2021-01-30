@@ -1,7 +1,7 @@
 package com.owl_devs.geoips.auth.services;
 
 import com.google.common.base.Preconditions;
-import com.owl_devs.geoips.auth.model.User;
+import com.owl_devs.geoips.auth.model.UserModel;
 import com.owl_devs.geoips.auth.repositories.UserRepository;
 import com.owl_devs.geoips.auth.resources.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,39 +29,39 @@ public class AuthServices {
        // Preconditions.checkArgument(userDto.getBirthDate() != null, "birthDate can not be null");
         Preconditions.checkArgument(userDto.getCellphone() != null, "cellphone can not be null");
 
-        User newUser = convertUser(userDto);
+        UserModel newUserModel = convertUser(userDto);
 
-        userRepository.save(newUser);
+        userRepository.save(newUserModel);
     }
 
     public List<UserDto> getUsers() {
-        List<User> users = userRepository.findAll();
+        List<UserModel> userModels = userRepository.findAll();
 
-        return convertUsersToDto(users);
+        return convertUsersToDto(userModels);
     }
 
-    private List<UserDto> convertUsersToDto(List<User> users) {
+    private List<UserDto> convertUsersToDto(List<UserModel> userModels) {
         List<UserDto> usersDto = new ArrayList<UserDto>();
 
-        users.forEach((user) -> {
+        userModels.forEach((userModel) -> {
             usersDto.add(UserDto.builder()
-                    .personalId(user.getPersonalId())
-                    .idType(user.getIdType())
-                    .userName(user.getUserName())
-                    .password(user.getPassword())
-                    .userType(user.getUserType())
-                    .name(user.getName())
-                    .birthDate(user.getBirthDate())
-                    .cellphone(user.getCellphone())
-                    .id(user.getId())
+                    .personalId(userModel.getPersonalId())
+                    .idType(userModel.getIdType())
+                    .userName(userModel.getUserName())
+                    .password(userModel.getPassword())
+                    .userType(userModel.getUserType())
+                    .name(userModel.getName())
+                    .birthDate(userModel.getBirthDate())
+                    .cellphone(userModel.getCellphone())
+                    .id(userModel.getId())
                     .build());
         });
 
         return usersDto;
     }
 
-    private User convertUser(UserDto userDto) {
-        return User.builder()
+    private UserModel convertUser(UserDto userDto) {
+        return UserModel.builder()
                 .personalId(userDto.getPersonalId())
                 .idType(userDto.getIdType())
                 .userName(userDto.getUserName())
